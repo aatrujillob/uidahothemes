@@ -1,0 +1,4 @@
+name: PDF plain format
+description: >
+ Template for creating pdf documents
+create_dir: true

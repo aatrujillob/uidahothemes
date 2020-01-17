@@ -1,0 +1,214 @@
+---
+title: "Readings in Commodity Futures and Options Markets"
+author: ""
+date: ' '
+output:
+  pdf_document:
+bibliography: bib/bibliography.bib
+# Download your specific bibliography database file and refer to it in the line above.
+csl: csl/ownstyleV1.csl
+# Download your specific csl file and refer to it in the line above.
+---
+
+This list is partly based on the reading list of the Research on Futures and Options Seminar (ACE 528) 
+offered by University of Illinois at Urbana-Champaign. 
+
+#   Overview 
+- [@Peck1985]
+
+# Surveys 
+
+- [@Carter1999]
+- [@Williams2001]
+- [@Garcia2004]
+- [@Carter2017]
+
+#   Development of Futures Markets 
+
+- [@Gray1966]
+- [@Working1970]
+- [@Leuthold1994] 
+- [@Brorsen2001]
+
+#   Market Microstructure and the Costs of Trade Execution 
+- [@Roll1984]
+- [@Bryant2004]
+- [@Frank2011]
+- [@Martinez2011]
+- [@Wang2014]
+
+#   Price Discovery 
+- [@Garbade1983]
+- [@Gonzalo1995]
+- [@Hasbrouck1995] 
+- [@Yang2001a]
+- [@Andersen2007]
+- [@Adammer2015]
+- [@Narayan2015a]
+
+#   Storage and Intertemporal Pricing 
+- [@Working1948]
+- [@Working1949]
+- [@Benirschka1995]
+- [@Pindyck2001]
+- [@Peterson2005] 
+- [@Carter2007]
+
+#  Hedging: Alternative Views 
+- [@Working1953]
+- [@Ederington1979]
+- [@Hirshleifer1988]
+- [@Hirshleifer1990]
+- [@Myers1989]
+- [@Myers1991]
+- [@Lien2002]
+- [@Mattos2008]
+- [@Pannell2008]
+- [@Wu2011]
+- [@Chen2013]
+- [@Conlon2015]
+
+#   Returns to Speculation and Risk Premiums  
+- Financial market analysis (risk factor models etc.) for commodity markets
+- [@Dusak1973]
+- [@Hartzmark1987]
+- [@Bessembinder1992]
+- [@Frank2009]
+- [@Daskalaki2011]
+- [@Aulerich2013]
+- [@Brooks2013]
+- [@Dewally2013a]
+- [@Gorton2013] 
+- [@Szymanowska2014]
+- [@Cheng2015]
+- [@Fernandez2017]
+
+#   Forecast Accuracy and Informational Efficiency 
+- [@McKenzie2002]
+- [@Timmermann2004]
+- [@Sanders2005]
+- [@Park2009]
+- [@Colino2011a]
+
+
+#   Price Effects of Futures Trading 
+- [@Gray1963]
+- [@Cox1976]
+- [@Kawai1983]
+- [@Turnovsky1985]
+- [@Lence2009] 
+- [@Buyuksahin2014]
+- [@Hamilton2015]
+    
+
+#   Delivery and Manipulation 
+- [@Pirrong1993]
+- [@Hranaiova2002]
+- [@Pirrong2004]
+- [@Garcia2015]
+
+# Options Markets, Volatility and Volatility Forecasting 
+- [@Black1976]
+- [@Simon2002]
+- [@Szakmary2003]
+- [@Egelkraut2007]
+
+
+#   Other Topics: 
+## Distribution and Volatility of Futures Prices, and Implications
+
+## High Frequency & Algorithmic Trading
+  
+## Market Spillover
+- [@Serra2013a]
+  
+
+## Portfolio allocation/optimization including commodities
+  
+## Financialization of commodity markets
+- [@Boyd2018]
+- [@Irwin2012Financialization]
+  
+##  Corporate finance and risk management related to commodity markets
+  
+## Econometric/statistical analysis of commodity markets
+  
+## Decision models (OR/MS models) applied to the commodity sector
+  
+## Real option analysis investigating commodity project investment and production decisions
+
+## Managerial accounting & economics for commodity related corporations
+  
+## Micro & macroeconomic analysis of commodity markets
+  
+## Global and regional trade of commodities
+  
+## The role of commodity production and consumption for developing countries
+
+## On Endogeneity issues:
+
+- [@Roberts2013]
+- [@Gippel2015a]
+- [@Sande2018]
+
+# A. Suggested Guide for "Reading" Journal Articles, by Vithala Rao, Cornell
+
+Allow enough time to read the article at least twice. In the first reading, which may be quite superficial, try to get a general idea of the subject matter examined, uniqueness of the approach, and significant results. In the second reading, try to be critical of the concepts, assumptions, models, and application. If 
+necessary, look over the article for a third time to seek a sharper understanding of the article and to 
+evaluate where else the results and models can be applied.
+
+While reading the article try and answer the questions indicated below for yourself. Doing so should 
+significantly enhance your understanding of the research reported and your ability to critique the work.
+Note that some published articles may not fit this format.
+
+  A) What aspect(s) of the business system is (are) being studied by the author? (E.g., relationship between 
+  a firm and competitor, consumer choices over time.)
+  
+  B) What are some significant research issues addressed in the paper? Reflect upon why they are significant.
+  
+  C) What specific managerial decisions can be addressed by the results reported in the paper? Are these 
+  decisions made better when the recommendations from this research are adopted?
+  
+  D) 
+    1. What is (are) the microunit(s) whose "behavior" is (are) being addressed in the paper?
+     2. State the basic model of the behavior of the microunit in words or as a flow chart. State the premises 
+  and assumptions of the model. Identify major constructs.
+     3. State the basic model of the behavior of the microunit in a mathematical form and identify the 
+  variables (predictor or criterion) and the parameters (unknown) of the model.
+  
+  E) Does the paper deal with aggregation of the model across various microunits or segments? If so, how is 
+  this aggregation accomplished? If aggregation is not considered, what are the effects of the assumption of 
+  homogeneity?
+  
+  F) How are the variables of the model measured? Are these measures appropriate? What are the sources of 
+  data? How reliable are these measures? What are some alternative ways of measuring the variables?
+  
+  G) How are the parameters of the model estimated? Are the properties of the estimates discussed? (For 
+  example, are they unbiased and/or consistent?)
+  
+  H) Is the empirical application discussed in the papers appropriate? Are the results validated? (This 
+  aspect may not be relevant for some articles.)
+  
+  I) Are the results interpreted well? Are there any alternative explanations of the results?
+  
+  J) Identify one or two other applications of the basic model?
+  
+  K) What general conclusions can be drawn? In what ways does this article contribute to (or extend) our 
+  understanding of our field of study in the substantive area(s) examined by the article?
+
+
+  
+<!-- regular html comment --> 
+
+
+<!-- 
+I.  One   
+    A. two
+      1. three
+      2. four  
+          i.  five  
+          ii.  six  
+            - seven 
+              * eight                                                                    
+II.  Nine
+-->

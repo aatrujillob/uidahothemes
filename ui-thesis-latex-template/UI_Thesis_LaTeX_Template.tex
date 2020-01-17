@@ -1,0 +1,230 @@
+%%
+%% This template was created by PhD student Chris Zeoli in spring 2011 to meet
+%% the University of Idaho College of Graduate Studies requirements for a PhD
+%% Thesis.
+%%
+
+\documentclass[12pt,letterpaper]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%Allows placement of graphics.
+\usepackage[pdftex]{graphicx}
+%Allows fcns like doublespace, singlespace, and singlehalfspacing of text.
+\usepackage{setspace}
+\title{Title}
+
+%Clears plain-page pg# settings, relocates pg#'s @ top-right-corner.
+\makeatletter
+\renewcommand{\ps@plain}{
+\renewcommand\@oddhead{\hfill\normalfont\textrm{\thepage}}
+\renewcommand\@evenhead{}
+\renewcommand\@oddfoot{}
+\renewcommand\@evenfoot{}}
+
+%Reduces space between section headings and top margin
+\def\@makechapterhead#1{%
+  \vspace*{-48\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 0\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+\def\@makeschapterhead#1{%
+  \vspace*{-48\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother
+
+%Changes leading pg#'s to roman sytle
+\renewcommand{\thepage}{\roman{page}}
+%Renames contents label explicitly
+\renewcommand{\contentsname}{Table of Contents}
+
+%Margins
+\addtolength{\voffset}{-.5in}
+\addtolength{\hoffset}{-.145in}
+\setlength{\marginparwidth}{1.25in}
+\setlength{\oddsidemargin}{.625in}
+\setlength{\marginparsep}{0in}
+\setlength{\topmargin}{12pt}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{20pt}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6in}
+\setlength{\footskip}{0in}
+
+%Sets all text to double space, per \usepackage{setspace} 
+\doublespacing
+
+
+\begin{document}
+%Sets non-header pages to same format (location) as header pages, e.g upper-right.
+\pagestyle{myheadings}
+
+%Clears pg# from displaying on titlepage
+\thispagestyle{empty}
+
+%Titlepage
+\begin{center}
+Title\\
+A Thesis\\
+Presented in Partial Fulfilment of the Requirements for the\\
+Degree of (Degree)\\
+with a\\
+Major in (Major)\\
+in the\\
+College of Graduate Studies\\
+University of Idaho\\
+\vspace{84pt}
+by\\
+(Your Name)\\
+\vspace{48pt}
+(Month) (Year)\\
+\vspace{60pt} 
+Major Professor: First Last, Ph.D.\\
+\end{center}
+\pagebreak
+
+%Authorization to Submit Thesis
+\addcontentsline{toc}{chapter}{Authorization to Submit Thesis}
+\section*{\huge{AUTHORIZATION TO SUBMIT \begin{center}THESIS\end{center}}}
+\begin{flushleft}
+This thesis of (Your Full Name), submitted for the degree of (Degree) with a major in (Major) and titled \lq\lq (Thesis Title)," has been reviewed in final form. Permission, as indicated by the signatures and dates given below, is now granted to submit final copies to the College of Graduate Studies for approval.
+\end{flushleft}
+\begin{singlespace}
+\ \ \ \ \ Major Professor\indent\underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last, Ph.D.\\
+\ \\
+\ \ \ \indent Committee\\
+\ \ \ \indent Members\indent\indent\ \ \ \ \ \ \underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last, Ph.D.\\
+\ \\
+\ \ \indent\indent\indent\indent\indent\indent\ \ \ \underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last, Ph.D.\\
+\ \\
+\ \ \indent\indent\indent\indent\indent\indent\ \ \ \underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last, Ph.D.\\
+\ \\
+\ \ \indent Department\\
+\ \ \indent Administrator\indent\ \ \ \underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last, Ph.D.\\
+\ \\
+\ \ \indent Discipline's\\
+\ \ \indent College Dean\indent\ \ \ \ \ \underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last, Ph.D.\\
+\ \\
+Final Approval and Acceptance by the College of Graduate Studies\\
+\ \\
+\ \ \indent\indent\indent\indent\indent\indent\ \ \underline{\makebox[2.8in][l]{\ }}Date\underline{\makebox[1.2in][l]{\ }}\\
+\ \ \indent\indent\indent\indent\indent\indent\indent First Last\\
+\end{singlespace}
+\pagebreak
+
+%Abstract
+\addcontentsline{toc}{chapter}{Abstract}
+\section*{\huge{Abstract}}
+\ \ \ \ \ In this thesis, \ldots
+\pagebreak
+
+%Acknowledgements
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\section*{\huge{Acknowledgements}}
+\ \ \ \ \ I would like to thank \ldots
+\pagebreak
+
+%Table of Contents
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+\pagebreak
+
+%List of Tables
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\pagebreak
+
+%List of Figures
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\pagebreak
+
+%Chapter 1
+%Sets page count at one
+\setcounter{page}{1}
+%Sets pg# type to display arabic numerals
+\renewcommand{\thepage}{\arabic{page}}
+\chapter{Introduction}
+\ \ \ \ \ The development of \ldots
+\pagebreak
+
+%Chapter 2
+\chapter{Chapter 2 Name}
+%Section 2.1
+\section{Section Name}
+\ \ \ \ \ The \ldots
+
+%Section 2.2
+\section{Section Name}
+\ \ \ \ \ The \ldots
+
+%Section 2.3
+\section{Section Name}
+\ \ \ \ \ The \ldots
+\pagebreak
+ 
+%Chapter 3
+\chapter{Summary and Conclusions}
+\ \ \ \ \ In this thesis, I have \ldots
+\pagebreak
+
+%Appendix A
+\addcontentsline{toc}{chapter}{Appendix A: Name}
+\section*{Appendix A: Name}
+\ \ \ \ \ The \ldots
+
+%Appendix B
+\addcontentsline{toc}{chapter}{Appendix B: Name}
+\section*{Appendix B: Name}
+\ \ \ \ \ The \ldots
+
+\subsection*{Appendix B.1. Name}
+\ \ \ \ \ The \ldots
+
+\subsubsection*{Appendix B.1.1. Name}
+\ \ \ \ \ The \ldots
+
+\subsubsection*{Appendix B.1.2. Name}
+\ \ \ \ \ The \ldots
+
+\subsubsection*{Appendix B.1.3. Name}
+\ \ \ \ \ The \ldots
+
+\subsection*{Appendix B.2. Name}
+\ \ \ \ \ The \ldots
+
+%References
+\addcontentsline{toc}{chapter}{References}
+\bibliography{References}
+%Relabels bibliography title as "References"
+\renewcommand\bibname{References}
+\begin{thebibliography}{99}
+%Gives invariant reference tag to particular referece, use ~\cite{Each Author's Last Initial}
+\bibitem{Each Author's Last Initial}
+Name, Journal Name {\bf Volume} (Year) page
+%Another Example
+%\bibitem{TMO1}
+%M. Taketani, S. Machida, and S. Onuma, Prog. Theor. Phys (Kyoto) {\bf 7} (1952) 45.
+\end{thebibliography}
+
+\end{document}

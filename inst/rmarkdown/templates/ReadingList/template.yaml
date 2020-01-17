@@ -1,0 +1,4 @@
+name: ReadingList
+description: >
+ Template for creating reading list documents with ownstyle csl 
+create_dir: true

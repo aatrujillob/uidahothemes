@@ -1,0 +1,4 @@
+name: PDF_lecture_notes
+description: >
+ Template for creating lecture notes pdf documents
+create_dir: true

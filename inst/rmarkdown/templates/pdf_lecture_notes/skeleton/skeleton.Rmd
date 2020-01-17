@@ -1,0 +1,637 @@
+---
+tikz: true
+tikz-libs: arrows
+output: uidahothemes::pdf_lecture_notes
+fontsize: 12pt 
+#bibliography: citations.bib
+# Download your specific bibliography database file and refer to it in the line above.
+#csl: ajae.csl
+# Download your specific csl file and refer to it in the line above.
+---
+
+<!-- Title was below here --> 
+\noindent
+University of Idaho \hfill AERS  \newline
+Fall 20XX \hfill {AGEC XXX} 
+
+\vspace{4mm}
+\begin{center}
+
+\large{
+{\bf Week XX\\
+Time value of Money
+}}
+\end{center}
+
+
+# Introduction
+
+This handout will guide us through the topic of time value of money. 
+The concepts of time value of money are the core of financial 
+management. It is important to master them, that is why we will spend extra time going 
+over many examples and explaining how to calculate them in Excel. 
+
+Note: You will find all the examples in this handout done in Excel in the file
+Weekxx_TVM.xlxs in bblearn.
+
+# Learning objectives
+
+- Understand the time value of money, including the role of compound interest.
+
+- Determine the present values of (1) a future payment, (2) a nonuniform series 
+of payments, (3) a uniform series of payments, and (4) a series of payments 
+growing at a constant rate.
+
+- Determine the future values of (1) a present sum, (2) a nonuniform series of 
+payments, and (3) a uniform series of payments and (4) a series of payments 
+growing at a constant rate.
+
+- Understand annual interest and compounding
+
+- Implement the formulas and calculations in Excel.
+
+# The time value of money
+
+Which payment do you prefer? \$1 dollar today, or \$1 dollar a year from now?
+Why? and if you currently would live in Venezuela or Zimbabwe? What will make
+both payments indifferent/equal?  
+
+\newpage
+## Concepts of time value of money
+
+### Interest rate
+
+An interest rate serves as the pricing mechanism for the time value of money. 
+It reflects the collective effects of all investors' time preferences for money and the
+productive uses of such money. The rate per period is considered an exchange price between
+present and future dollars.
+
+\begin{center}
+\begin{tikzpicture}
+
+\draw[|-|](0,0)--(5,0);
+ 
+%\draw (5,-.2)--(5,.2);
+\node[align=left,below] at (-1.5, -0.2) {Cash flow};
+\node[align=left,above] at (-1.5,0.2) {Time period};
+
+\node[align=left,above] at (0,0.2) {0};
+\node[align=left,above] at (5,0.2) {1};
+ 
+\node[align=left,below] at (0,-0.2) {\$100};
+\node[align=left,below] at (5,-0.2) {\$110};
+
+\end{tikzpicture}
+\end{center}
+
+Here, we would be indifferent between \$100 today and \$110 in the next period 
+if the interest rate is 10\%.
+
+### Compound interest
+
+Compound interest is the basis of the concept of time value of money. 
+The time value concept uses compound interest to determine present and
+future values. Compound interest means that each time interest is paid, 
+it is added to, or compounded into the principal, and thereafter also earns 
+interest. The other case, when interest is not compound is called simple 
+interest, interest is still paid each period, but is not added to the principal. 
+
+Let's check the following example in table \ref{tab:1} (See also the Excel file
+Week03_TVM.xlxs) to make it clear. Let's assume we invest \$1000 dollars, for 3
+years, at an interest rate per period (i) of 5\%. Then, we would have:
+
+- After 1 year: $1000 \times (1+0.05) = 1050$
+- After 2 year: $1000 \times (1+0.05) \times (1+0.05) = 1102.50$
+- After 3 year: $1000 \times (1+0.05)^3 = 1157.63$
+
+\begin{table}[htbp]
+ \caption{Compound vs Simple}
+  \centering
+    \begin{tabular}{l|rrr|rrr|}
+          & \multicolumn{3}{c}{Compound Interest} &  \multicolumn{3}{c}{Simple Interest}   \\
+    Period & Capital & Interest & Total & Capital & Interest & Total \\
+    \midrule
+    \multicolumn{1}{r|}{0} &       &       & 1000.00 &       &       & 1000.00 \\
+    \multicolumn{1}{r|}{1} & 1000.00 & 50.00 & 1050.00 & 1000.00 & 50.00 & 1000.00 \\
+    \multicolumn{1}{r|}{2} & 1050.00 & 52.50 & 1102.50 & 1000.00 & 50.00 & 1000.00 \\
+    \multicolumn{1}{r|}{3} & 1102.50 & 55.13 & 1157.63 & 1000.00 & 50.00 & 1000.00 \\
+    Total Interest &       & 157.63 &       &       & 150.00 &  \\
+    \end{tabular}%
+
+  \label{tab:1}%
+\end{table}
+
+Here, we can see that the compound interest yields an excess over the simple 
+interest of \$7.63. This difference will grow exponentially through time, thus 
+the strenght of interest compounding for finance decisions.
+
+## Overview of calculation rules
+
+Now we will go over the basic scenarios of time value of money and how to 
+calculate them. Those scenarios are;
+
+\begin{enumerate}
+\item Single payment, future value of present payment 
+\item Single payment, present value of future payment
+\item Series of payments, present value
+\item Uniform series of payments, present value
+\item Infinite uniform series of payments, present value 
+\item Series of payments, future value
+\item Uniform series of payments, future value
+\item Constant growth series of payments, present value 
+\end{enumerate}
+
+### Single payment, future value of present payment 
+
+The future value of a present payment is the same case as the
+example on table \ref{tab:1}, and can be summarized with the following equation:
+
+\begin{equation}
+ V_n = V_0 (1+i)^N
+\label{eq:1}
+\end{equation}
+
+where $V_n$ is the value at time n, $i$ is the interest rate per conversion 
+period, and $N$ is the number of conversion periods. 
+
+#### Example 1
+
+Example from the book. What is the future value of \$ 1000 compounded at 5\% for
+10 years?
+
+\begin{tikzpicture}[
+pile/.style={thick, ->, >=stealth'}]
+
+\draw [|-|](0,0)--(10,0);
+\draw (0,-.1)--(0,.1);
+\draw (1,-.2)--(1,.2);
+\draw (2,-.2)--(2,.2);
+\draw(3,-.2)--(3,.2);
+\draw (4,-.2)--(4,.2);
+\draw (5,-.2)--(5,.2);
+\draw (6,-.2)--(6,.2);
+\draw (7,-.2)--(7,.2);
+\draw (8,-.2)--(8,.2);
+\draw (9,-.2)--(9,.2);
+\draw (10,-.2)--(10,.2);
+\node[align=left,below] at (-1.5, -0.2) {Cash flow};
+\node[align=left,above] at (-2.0,0.2) {Time period (year)};
+
+\node[align=left,above] at (0,0.2) {0};
+\node[align=left,above] at (1,0.2) {1};
+\node[align=left,above] at (2,0.2) {2};
+\node[align=left,above] at (3,0.2) {3};
+\node[align=left,above] at (4,0.2) {4};
+\node[align=left,above] at (5,0.2) {5};
+\node[align=left,above] at (6,0.2) {6};
+\node[align=left,above] at (7,0.2) {7};
+\node[align=left,above] at (8,0.2) {8};
+\node[align=left,above] at (9,0.2) {9};
+\node[align=left,above] at (10,0.2) {10};
+
+\node[align=left,below] at (0,-1.4) {\$1000};
+\node[align=left,below] at (10,2) {\$1629};
+
+
+\draw[pile](0,0)--(0,-1.2);
+\draw[pile](10,0)--(10,1.4);
+
+\end{tikzpicture}
+
+where: $V_0 = 1000$, $i = 5\%$ and $N=10$, then:
+$V_{10} = 1000 \times (1+0.05)^{10} = 1629$
+
+
+### Single payment, present value of future payment
+
+The present value of a future payment, is just about flipping the
+direction of what we just saw in the case of a future value of a present 
+payment. So we just need to look at equation \ref{eq:1} and solve for $V_0$, that yields:
+
+\begin{equation}
+V_0 = \frac{V_N}{(1+i)^N}
+\label{eq:2}
+\end{equation}
+
+#### Example 2
+
+What is the present value of a \$2191.12 payment available in 20 years from now
+if the interest rate is 4\%?  
+
+So we want to find the value of $V_0$ when $V_N = \$2191.12$, $i=4\%$, and $N=20$,
+so:
+
+$\displaystyle V_0 = \frac{2191.12}{(1+0.04)^{20}} = 1000$
+
+
+### Series of payments, present value
+
+Finding the present value of a series of payments is one of the most common
+problems in financial management. The procedure to determine it is just an
+extension of the procedure to find the present value of a single future payment.
+Take for instance, what is the present value of the following series, discounted
+at 8\% per year.
+ 
+#### Example 3
+
+\begin{tikzpicture}
+
+\draw [|->](0,0)--(6,0);
+\draw (0,-.1)--(0,.1);
+\draw (1,-.2)--(1,.2);
+\draw (2,-.2)--(2,.2);
+\draw(3,-.2)--(3,.2);
+\draw (4,-.2)--(4,.2);
+\draw (5,-.2)--(5,.2);
+\node[align=left,below] at (-1.5, -0.2) {Cash flow};
+\node[align=left,above] at (-2.0,0.2) {Time period (year)};
+
+\node[align=left,above] at (0,0.2) {0};
+\node[align=left,above] at (1,0.2) {1};
+\node[align=left,above] at (2,0.2) {2};
+\node[align=left,above] at (3,0.2) {3};
+\node[align=left,above] at (4,0.2) {4};
+\node[align=left,above] at (5,0.2) {5};
+\node[align=left,above] at (6,0.2) {6};
+\node[align=left,below] at (1,-0.2) {\$3000};
+\node[align=left,below] at (2,-0.2) {\$4000};
+\node[align=left,below] at (3,-0.2) {\$5000};
+\node[align=left,below] at (4,-0.2) {\$6000};
+\node[align=left,below] at (5,-0.2) {\$7000};
+
+
+\node[align=left,above] at (-1.5,-1.5) {$\frac{\$3000}{(1.08)^1}$ = 2777.8};
+\node[align=left,above] at (-1.5,-2.3) {$\frac{\$4000}{(1.08)^2}$ = 3429.4};
+\node[align=left,above] at (-1.5,-3.1) {$\frac{\$5000}{(1.08)^3}$ = 3969.2};
+\node[align=left,above] at (-1.5,-3.9) {$\frac{\$6000}{(1.08)^4}$ = 4410.2};
+\node[align=left,above] at (-1.5,-4.7) {$\frac{\$7000}{(1.08)^5}$ = 4764.1};
+\node[align=left,above] at (-2.2,-5.3) {Present Value = 19350.6};
+\node[align=left,above] at (3.2,-5.3) {Discount Rate= 8\% annual};
+
+
+\draw (1,-.8)--(1,-1.0);
+\draw [<-](0,-1.0)--(1,-1.0);
+
+\draw (2,-.8)--(2,-1.8);
+\draw [<-](0,-1.8)--(2,-1.8);
+
+\draw (3,-.8)--(3,-2.6);
+\draw [<-](0,-2.6)--(3,-2.6);
+
+\draw (4,-.8)--(4,-3.4);
+\draw [<-](0,-3.4)--(4,-3.4);
+
+\draw (5,-.8)--(5,-4.2);
+\draw [<-](0,-4.2)--(5,-4.2);
+
+\end{tikzpicture}
+
+This can be expressed more generally as:
+
+$$ V_0 = \displaystyle \frac{P_1}{(1+i)} + \frac{P_2}{(1+i)^2} + \dots + \frac{P_N}{(1+i)^N} $$
+or 
+\begin{equation}
+V_0 = \sum_{n=0}^N \frac{P_n}{(1+i)^n}
+\label{eq:3}
+\end{equation}
+
+where  
+
+$V_0 =$  the present value of the payment series  
+$P_n =$  the payment for each conversion period (n)  
+$i =$ the interest rate  
+$\sum =$ the summation from N=0 to N   
+
+### Uniform series of payments, present value
+
+The present value of a uniform series of payments is just a special case of the 
+previous case. If we call the uniform series of payments $A$ (for annuity), then we 
+can express it as:
+
+$$ V_0 = \sum_{n=0}^N \frac{A}{(1+i)^n} $$
+or  
+
+\begin{equation} 
+V_0 = \displaystyle \frac{A}{(1+i)} + \frac{A}{(1+i)^2} + \dots + \frac{A}{(1+i)^N} 
+\label{eq:4}
+\end{equation}
+
+With some algebra tricks we can make a "short" equation out of this:
+Let's multiply equation \ref{eq:4} by $(1+i)$ that yields:
+
+\begin{equation}
+V_0(1+i) = \displaystyle A + \frac{A}{(1+i)} + \frac{A}{(1+i)^2} + \dots + \frac{A}{(1+i)^N-1} 
+\label{eq:5}
+\end{equation}
+
+if we subtract \ref{eq:4} from \ref{eq:5} that gives:
+
+$$ V_0(1+i) - V_0 = A -  \frac{A}{(1+i)^N}$$
+
+reorganizing and solving for $V_0$ yields:
+
+\begin{equation}
+V_0 = A \Big[ \frac{1-(1+i)^{-N}}{i}  \Big]
+\label{eq:6}
+\end{equation}
+
+#### Example 4
+
+As an example, let's suppose that oil-royalty payments are expected to pay \$5000 
+at the end of each of the next 5 years. The interest rate is 8\%. What is the present
+value?
+
+$$V_0 = 5000 \Big[ \frac{1-(1+0.08)^{-5}}{i}  \Big] = 19963.55$$
+
+#### Example 5 
+
+What would happen if the payment is not at the end of each period but at the
+beginning of the periodinstead? like paying for a membership? That would slightly
+change things.
+
+In the first scenario payments look like the following:
+
+\begin{tikzpicture}
+
+\draw [|-](0,0)--(5,0);
+\draw (0,-.1)--(0,.1);
+\draw (1,-.2)--(1,.2);
+\draw (2,-.2)--(2,.2);
+\draw(3,-.2)--(3,.2);
+\draw (4,-.2)--(4,.2);
+\draw (5,-.2)--(5,.2);
+\node[align=left,below] at (-1.5, -0.2) {Cash flow};
+\node[align=left,above] at (-2.0,0.2) {Time period (year)};
+
+\node[align=left,above] at (0,0.2) {0};
+\node[align=left,above] at (1,0.2) {1};
+\node[align=left,above] at (2,0.2) {2};
+\node[align=left,above] at (3,0.2) {3};
+\node[align=left,above] at (4,0.2) {4};
+\node[align=left,above] at (5,0.2) {5};
+\node[align=left,below] at (1,-0.2) {\$5000};
+\node[align=left,below] at (2,-0.2) {\$5000};
+\node[align=left,below] at (3,-0.2) {\$5000};
+\node[align=left,below] at (4,-0.2) {\$5000};
+\node[align=left,below] at (5,-0.2) {\$5000};
+\node[align=left,above] at (-2.2,-1.3) {Present Value = 19963};
+\node[align=left,above] at (3.2,-1.3) {Discount Rate= 8\% annual};
+
+\end{tikzpicture}
+
+but if payments occur at the beginning of the period then the payments would
+look like:
+
+\begin{tikzpicture}
+
+\draw [|-](0,0)--(5,0);
+\draw (0,-.1)--(0,.1);
+\draw (1,-.2)--(1,.2);
+\draw (2,-.2)--(2,.2);
+\draw(3,-.2)--(3,.2);
+\draw (4,-.2)--(4,.2);
+\draw (5,-.2)--(5,.2);
+\node[align=left,below] at (-1.5, -0.2) {Cash flow};
+\node[align=left,above] at (-2.0,0.2) {Time period (year)};
+
+\node[align=left,above] at (0,0.2) {0};
+\node[align=left,above] at (1,0.2) {1};
+\node[align=left,above] at (2,0.2) {2};
+\node[align=left,above] at (3,0.2) {3};
+\node[align=left,above] at (4,0.2) {4};
+\node[align=left,above] at (5,0.2) {5};
+\node[align=left,below] at (0,-0.2) {\$5000};
+\node[align=left,below] at (1,-0.2) {\$5000};
+\node[align=left,below] at (2,-0.2) {\$5000};
+\node[align=left,below] at (3,-0.2) {\$5000};
+\node[align=left,below] at (4,-0.2) {\$5000};
+\node[align=left,above] at (-2.2,-1.3) {Present Value = 21,560.63};
+\node[align=left,above] at (3.2,-1.3) {Discount Rate= 8\% annual};
+
+\end{tikzpicture}
+
+To calculate the present value of this special case, we can start with equation
+\ref{eq:6}, add $A$ to it, and subtract $A/(1+i)^N$. After rearraging we would 
+have:
+
+\begin{equation}
+V_0 = {A}{(1+ i)} \Big[ \frac{1 - (1+i)^{-N}}{i} \Big]
+\label{eq:7}
+\end{equation}
+
+
+### Infinite uniform series of payments, present value 
+
+What happens to the present value of a series of uniform payments when these payment
+are infinite?
+Notice that the formula for the present value of a series of payments (equation
+\ref{eq:6}) can be rewritten as:
+
+$$V_0 = \frac{A}{i} - \frac{A}{i(1+i)^N} $$
+
+since payments are infinite then $\displaystyle \lim_{N\to\infty} V_0 = \frac{A}{i}$
+since the second element will tend to zero as N grows.  Thus:
+
+
+\begin{equation}
+V_0 = \frac{A}{i}
+\label{eq:8}
+\end{equation}
+
+#### Example 6
+
+You have a piece of land that would give an infinite number of annual payments of
+\$1000, you expect the interest rate to remain at 5\%. For how much could you sell
+this piece of land today?
+
+$\displaystyle V_0 = \frac{1000}{0.05} = 20000$
+
+### Series of payments, future value
+
+The future value of a series of payments is calculated by adding up the future value
+of each payment. The following picture shows the cash flows:
+
+
+\begin{tikzpicture}[
+pile/.style={thick, ->, >=stealth'}]
+
+\draw [|-|](0,0)--(7,0);
+\draw (0,-.1)--(0,.1);
+\draw (1,-.2)--(1,.2);
+\draw (2,-.2)--(2,.2);
+\draw(3,-.2)--(3,.2);
+\draw (4,-.2)--(4,.2);
+\draw (5,-.2)--(5,.2);
+\draw (6,-.2)--(6,.2);
+\draw (7,-.2)--(7,0.25);
+\node[align=left,below] at (-1.5, -0.2) {Cash flow};
+\node[align=left,above] at (-2.0,0.2) {Time period (year)};
+
+\node[align=left,above] at (0,0.2) {0};
+\node[align=left,above] at (1,0.2) {1};
+\node[align=left,above] at (2,0.2) {2};
+\node[align=left,above] at (3,0.2) {3};
+\node[align=left,above] at (4,0.2) {\dots};
+\node[align=left,above] at (5,0.2) {N-2};
+\node[align=left,above] at (6,0.2) {N-1};
+\node[align=left,above] at (7,0.2) {N};
+
+
+\node[align=left,below] at (1,-1.4) {$P_1$};
+\node[align=left,below] at (2,-1.4) {$P_2$};
+\node[align=left,below] at (3,-1.4) {$P_3$};
+\node[align=left,below] at (5,-1.4) {$P_{N-2}$};
+\node[align=left,below] at (6,-1.4) {$P_{N-1}$};
+\node[align=left,below] at (7,-1.4) {$P_{N}$};
+
+\node[align=left,below] at (7,3) {$V_N$};
+
+
+\draw[pile](1,0)--(1,-1.2);
+\draw[pile](2,0)--(2,-1.2);
+\draw[pile](3,0)--(3,-1.2);
+\draw[pile](5,0)--(5,-1.2);
+\draw[pile](6,0)--(6,-1.2);
+\draw[pile](7,0)--(7,-1.2);
+\draw[pile](7,0.5)--(7,2.4);
+
+\end{tikzpicture}
+
+This can be translated into the following equations:
+
+
+$$ V_n = P_1(1+i)^{N-1} + P_2(1+i)^{N-2} + \dots + P_{N-1}(1+i) + P_N $$
+or more generally
+
+\begin{equation}
+\displaystyle \sum_{n=1}^N P_n(1+i)^{N-n}
+\label{eq:9}
+\end{equation}
+
+#### Example 7
+
+What is the future value of 5 payments end of the year: \$3,000, \$4,000, \$5,000,
+\$6,000 and \$7,000; i = 8\%
+$V_5 = 3,000*(1.08)^4 +...+7,000*(1.08)^0 =  28,432$
+
+
+### Uniform series of payments, future value
+
+Again, the procedure for finding the future value of a series of payments is
+simplified when all payments are equal. Following the same procedure as the one shown
+for the present value of an uniform series of payments, we can express
+
+$$ V_n = A(1+i)^{N-1} + A(1+i)^{N-2} + \dots + A(1+i) + A $$
+as
+
+\begin{equation}
+V_N = {A} \Big[ \frac{(1+i)^{-N}-1}{i} \Big]
+\label{eq:10}
+\end{equation}
+
+
+### Example 8
+
+What is the future value of a 5-year uniform series of \$5000 with an annual rate of
+8\%?  
+
+See Excel file.
+
+
+### Constant growth series of payments, present value 
+
+So far we have seen payment series that were uniform over time. Now let's
+suppose that the payments experience a constant rate of growth (g). That's equivalent
+to:
+
+$V_0 = \displaystyle \frac{P_0(1+g)}{(1+i)} + \frac{P_0 (1+g)^2}{(1+i)^2} + \dots + \frac{P_0(1+g)^n}{(1+i)^n}$
+
+with some algebra similar to the one shown to derive the present value of 
+uniform series, the present value of a constant growth series of payments can be
+expressed as:
+
+\begin{equation}
+V_0 = \frac{ {P_0}{(1+g)} \Big[ 1-  \Big( \frac{1+g}{1+i}  \Big)^N \Big]} {i-g}
+\label{eq:11}
+\end{equation}
+
+In practice, we can still find the present value with equation \ref{eq:6} by
+adjusting with a new discount rate (r), such that
+
+$$1+r = \frac{1+i}{1+g}$$
+Notice that this makes the series of $V_0$ above into
+
+$$V_0 = \displaystyle \frac{P_0}{(1+r)} + \frac{P_0 }{(1+r)^2} + \dots + \frac{P_0}{(1+r)^n}$$
+
+thus we can use the adjusted rate
+
+$$r = \frac{1+i}{1+g} - 1$$
+in the "old fashioned" present value of a uniform series.
+
+#### Examples 9 and 10  
+
+In Excel file.
+
+## Annual interest rate and compounding
+
+In finance, interest rates are expressed (almost always) as annual rates.
+However, interest rates often have compounding periods shorter that a year. That
+creates a bit of a complication since the rate will be expressed nominally as
+annual but compounded over months, quarters, semesters, or any other period
+within the year.
+
+Suppose you take out a loan that requires monthly payments (example
+from:https://www.online-tech-tips.com). Thus, interest is calculated monthly as
+well. The nominal interest rate (annual percentage rate (APR)), is the monthly
+interest rate (1\% per month) multiplied by twelve (the number of periods in a
+year). This is 12\% interest rate with monthly compounding 
+
+Since interest is compounded monthly, the actual or effective interest rate is
+higher because interest in the current month compounds against interest in the
+previous month. As it turns out, a 12\% APR (nominal) interest loan has an
+effective (APY) interest rate of about 12.68\%. This can be calculated as:
+
+
+\begin{equation}
+\textnormal{Eff}\% = (1+\frac{\textnormal{Nom} \%}{m})^m - 1
+\label{eq:effnominal}
+\end{equation}
+
+where *Eff* is the effective rate, *Nom* is the nominal rate, and $m$ is the number
+of compounding periods per year.
+
+### Examples Annual Rate
+
+See Excel file, sheet AnnualRate
+
+### Some resources
+
+- Reference to financial functions in Excel: https://support.office.com/en-us/article/financial-functions-reference-5658d81e-6035-4f24-89c1-fbf124c2b1d8
+
+- Some examples online:
+  - http://www.tvmcalcs.com/calculators/excel_tvm_functions/excel_tvm_functions_page1
+  - http://www.tvmcalcs.com/index.php/calculators/excel_tvm_functions/excel_tvm_functions_page2
+  - http://www.tvmcalcs.com/index.php/calculators/excel_tvm_functions/excel_tvm_functions_page3
+  - http://www.tvmcalcs.com/calculators/apps/excel_graduated_annuities
+
+- https://www.online-tech-tips.com/ms-office-tips/determine-effective-interest-rate-from-nominal-interest-rate/
+
+
+## Outlook
+
+- What is expected from you?
+  - Read chapter 8 of Barry and Ellinger
+  - Do the exercises
+
+- What is next?
+  - Class activity 3 
+  
+- Discuss class activity 2
+
+There is a system and a logic/rationale to solve the problems. 
+Ask yourself, what is the ...  
+-  Moment and direction of calculation?: present or future
+(from PV to FV or vice versa)  
+- Payment?: single, series, uniform series (special case of series)  
+- Special case?: infinite sum, growth  
+

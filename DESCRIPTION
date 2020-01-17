@@ -1,0 +1,14 @@
+Package: uidahothemes
+Type: Package
+Title: 'R' 'Markdown' Themes for 'UIdaho' Documents and Presentations
+Version: 0.0.1
+Description: A set of custom 'R' 'Markdown' templates for documents and
+   presentations with the University of Idaho. Built on top of uiucthemes for personal use. I just changed some colors, fonts,
+   and tailored with some personal preferences. See uiucthemes and rticles in cran for original work.
+Depends:
+    R (>= 3.0)
+License: MIT + file LICENSE
+Imports: utils, rmarkdown, knitr, yaml, tinytex, xfun
+RoxygenNote: 6.1.0
+Suggests: testit, bookdown, xtable
+Encoding: UTF-8

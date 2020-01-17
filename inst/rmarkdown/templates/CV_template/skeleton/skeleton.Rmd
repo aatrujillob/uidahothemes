@@ -1,0 +1,110 @@
+---
+output: 
+  pdf_document:
+    md_extensions: +implicit_figures
+    latex_engine: pdflatex
+    template: tex_cv_template.tex
+geometry: margin=1in
+
+title: "CV"
+author: Your Name
+
+jobtitle: "Position . Department . University"
+address: "Address"
+fontawesome: yes
+email: youremail@email.edu
+# github: svmiller
+phone: "222-222-2222"
+#web: guinness.com
+updated: no
+
+keywords: R Markdown, academic CV, template
+
+fontfamily: mathpazo
+fontfamilyoptions: sc, osf
+fontsize: 11pt
+linkcolor: blue
+urlcolor: blue
+bibliography: bib/ResumePublications.bib
+csl: csl/ownstyle99_1.csl
+---
+
+# Employment
+
+*Assistant professor*, Department, University \hfill 20xx-
+\hfill present
+
+*Assistant professor*, Department, University, 
+\hfill 20xx-20xx
+
+
+# Education
+
+*University of*, Ph.D. xx \hfill 20xx  
+*Thesis title: "Essays on commodity price variability"*  
+*University*, M.S. xx \hfill 20xx 
+*Universidad de la vida*, B.S. xx \hfill 20xx  
+
+# Publications
+
+## Journal Articles
+
+<!-- put the citations in the bib file in the bib folder -->
+
+@) * [@Bessler1986]
+@) * [@Jore2010]
+@) * [@Newey1994]
+
+
+Google scholar profile at: https://scholar.google.com/citations?user=
+
+# Research Interests
+
+Price Analysis, Risk Management, Agricultural Marketing, Finance
+
+
+# Selected conferences, lectures, and presentations
+
+- Nice conference (2018) in nice place ...  
+- Nice conference (2018) in nice place ...  
+
+# Teaching
+
+* *University of*
+    + Finance  (2018) 
+* *Other University*: 
+    + Marketing Strategy and Models (2013, 2014, 2015)
+    + Advanced Supply Chain Management (2013-2018)
+    + Advanced Management and Marketing (2015-2018)
+    + Creating Frameworks in Marketing (2013-2018)
+* *University of Illinois at Urbana-Champaign*: 
+    + Commodity Futures and Options (2011)
+* *TIME-MBE. University of Crete, Greece*: 
+    + Advanced Management and Marketing (2016)
+
+# Grants
+
+
+- xxx
+- yyy
+
+# Academic service and awards
+
+- Reviewer for: bunch of journals
+
+For more information on reviewing tasks see: https://publons.com/author/
+
+- List of Teachers ranked as excellent!!!
+
+- Organizer of ...
+
+# Work in Progress
+
+1. xx
+2. yy
+
+
+# Technical skills
+
+Software: R, Stata, Python  
+Other Languages: Spanish

@@ -1,0 +1,57 @@
+---
+title: "Writing"
+author:
+- Author One
+- Author Two
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  word_document:
+    md_extensions: +implicit_figures
+    pandoc_args:
+    - --filter
+    - /usr/local/Cellar/pandoc-crossref/0.3.3.0/bin/pandoc-crossref
+    - -M
+    - crossrefYaml=YAMLS/pandoc-crossref-user.yaml
+    - --reference-doc=template_word/template_word.docx
+bibliography: bib/AJAE.bib
+csl: csl/ajae.csl
+abstract: |
+  This is the abstract.
+---
+
+
+```{r include_packages, include = FALSE}
+# This chunk ensures that package is
+# installed and loaded.
+# This chunk can be deleted from document
+if (!require(devtools))
+  install.packages("devtools")
+if (!require(myRticlesTemplate)) {
+  library(devtools)
+  devtools::install_github("aatrujillob/myRticlesTemplate")
+}
+ library(myRticlesTemplate) # Maybe could be useful if I add some features to the package
+
+# If tex hasn't been installed the following might be useful: https://yihui.name/tinytex/
+# in mac OS pandoc-crossref and pandoc-citeproc have been installed via homebrew
+```
+
+
+```{r document, child = 'Introduction.rmd'}
+```
+
+
+```{r document, child = 'article_document.rmd'}
+```
+
+<!-- 
+
+Write in article_document.rmd
+
+The reference files, the csl, and the bib files are located to folders in the directory of the document. Same for the yaml of crossref.
+-->
+
+Would be nice to figure out a way to link the pandoc arguments more automatically.
+Now the path depends on the local OS and version. 
+
+# Bibliography

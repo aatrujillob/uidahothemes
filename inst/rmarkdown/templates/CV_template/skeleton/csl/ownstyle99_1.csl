@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-US">
+  <info>
+    <title>AJAE- FullNote</title>
+    <title-short>AJAE</title-short>
+    <id/>
+    <link href="http://www.zotero.org/styles/american-journal-of-agricultural-economics" rel="self"/>
+    <link href="http://www.zotero.org/styles/harvard1" rel="template"/>
+    <link href="http://www.oxfordjournals.org/our_journals/ajae/for_authors/general.html" rel="documentation"/>
+    <author>
+      <name>Nelson Villoria</name>
+      <email>nvilloria@gmail.com</email>
+    </author>
+    <contributor>
+      <name>Andres Trujillo-Barrera</name>
+      <uri>http://www.mendeley.com/profiles/andres-trujillo-barrera/</uri>
+    </contributor>
+    <category citation-format="author-date"/>
+    <category field="science"/>
+    <issn>0002-9092</issn>
+    <eissn>1467-8276</eissn>
+    <updated>2015-10-23T18:15:33+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <macro name="editor">
+    <names variable="editor" delimiter=", ">
+      <name and="text" initialize-with=". " delimiter=", "/>
+      <label form="short" prefix=", "/>
+    </names>
+  </macro>
+  <macro name="anon">
+    <text term="anonymous" form="short" text-case="capitalize-first" strip-periods="true"/>
+  </macro>
+  <macro name="author">
+    <names variable="author">
+      <name and="text" delimiter-precedes-et-al="never" delimiter-precedes-last="always" et-al-use-first="19" initialize="false" initialize-with="." name-as-sort-order="first"/>
+      <label form="short" prefix=" "/>
+      <substitute>
+        <names variable="editor"/>
+        <text macro="anon"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-short">
+    <names variable="author">
+      <name and="text" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-use-first="19" et-al-use-last="true" initialize-with=". " name-as-sort-order="first"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text macro="anon"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="access">
+    <choose>
+      <if variable="URL">
+        <text value="" suffix=" "/>
+        <text variable=""/>
+        <group prefix=" [" suffix="]">
+          <text term="accessed" text-case="capitalize-first" suffix=" "/>
+          <date variable="accessed">
+            <date-part name="month" suffix=" "/>
+            <date-part name="day" suffix=", "/>
+            <date-part name="year"/>
+          </date>
+        </group>
+      </if>
+    </choose>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="bill book graphic legal_case legislation motion_picture song thesis" match="any"/>
+      <else>
+        <text variable="title" quotes="true" display="left-margin"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <group delimiter=": "/>
+  </macro>
+  <macro name="year-date">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix="(" suffix=")">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="edition">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter=" ">
+          <number variable="edition" form="ordinal"/>
+          <text term="edition" form="short"/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition" suffix="."/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="pages">
+    <group>
+      <label variable="page" form="short" suffix=" "/>
+      <text variable="page"/>
+    </group>
+  </macro>
+  <citation et-al-min="4" et-al-use-first="1" et-al-subsequent-min="3" et-al-subsequent-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true">
+    <layout delimiter="; ">
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="author-short"/>
+          <text macro="year-date"/>
+        </group>
+      </group>
+      <group>
+        <text macro="title" prefix=". "/>
+        <group suffix=". ">
+          <text variable="container-title" font-style="italic" prefix=" "/>
+          <text variable="volume" prefix=" "/>
+          <text variable="issue" form="short" prefix=", "/>
+          <text variable="page" prefix=": "/>
+        </group>
+        <group>
+          <text macro="access" prefix=" "/>
+        </group>
+      </group>
+    </layout>
+  </citation>
+</style>

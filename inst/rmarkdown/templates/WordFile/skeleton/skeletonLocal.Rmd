@@ -1,0 +1,38 @@
+---
+title: "Writing"
+author:
+- Author One
+- Author Two
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  word_document:
+    md_extensions: +implicit_figures
+    pandoc_args:
+    - --filter
+    - /usr/local/Cellar/pandoc-crossref/0.3.2.0/bin/pandoc-crossref
+    - -M
+    - crossrefYaml=/Users/aatrujillob/Documents/GITS/LocalTemplates/YAMLS/pandoc-crossref-user.yaml
+    - --reference-doc=/Users/aatrujillob/Documents/GITS/LocalTemplates/template_word/template_word.docx
+bibliography: /Users/aatrujillob/Documents/GITS/LocalTemplates/bib/AJAE.bib
+csl: /Users/aatrujillob/Documents/GITS/LocalTemplates/csl/ajae.csl
+abstract: |
+  This is the abstract.
+---
+
+```{r document, child = 'Introduction.rmd'}
+```
+
+
+```{r document, child = 'article_document.rmd'}
+```
+
+<!-- 
+
+Write in article_document.rmd
+
+The reference files, the csl, and the bib files are located to folders in the directory of the document. Same for the yaml of crossref.
+-->
+
+
+
+# Bibliography

@@ -1,0 +1,4 @@
+name: Word Documents
+description: >
+ Template for creating Word documents
+create_dir: true

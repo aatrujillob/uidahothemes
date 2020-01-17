@@ -1,0 +1,257 @@
+---
+title: "Vandals Beamer Theme"
+short-title: "Beamer Slides"
+author: "John Doe, Mary Joe"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'      # Month DD, YYYY (Main Slide)
+institute: "University of Idaho"
+department: "Agricultural Economics and Rural Sociology"  # Institute must be defined
+#license: "Did you license this slide deck? "
+section-titles: false                            # Provides slide headings
+safe-columns: true                               # Enables special latex macros for columns.
+classoption: aspectratio=43                     # Use aspectratio=169 if prefer wide slide or 43 if default
+show-notes: false                                # Show speaker notes
+tikz: true
+tikz-libs: arrows,snakes
+output: 
+   uidahothemes::beamer_vandals
+---
+
+# Section title     
+## Subsection title 
+
+### Frame Title
+
+Frame content 
+
+**Unordered List**
+
+- [University of Idaho](http://uidaho.edu)
+- [Department of Ag Econ and Rural Sociology](http://www.agec.uidaho.edu/)
+- [Blog](http://blog.oup.com/2016/03/adopting-sustainable-farm-practices/)
+
+*Ordered List*
+
+1. <https://quantecon.org>
+2. <https://github.com/aatrujillob>
+
+
+#### Title for block box
+
+Content inside of a box 
+
+### \LaTeX
+
+\begin{exampleblock}{Binomial Theorem}
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation} 
+\end{exampleblock}
+
+Hello Equation \ref{eq:binom}
+
+## Code Example
+
+### Code Embedding
+
+```{r}
+# Embedding code
+x = 2
+y = 3
+
+x + y
+```
+
+Inline R code refering to variable in previous code chunk:
+
+`r x`
+
+
+### Spacing
+
+- Use: \\bigskip
+\bigskip
+
+- \\medskip
+\medskip
+
+- \\smallskip
+\smallskip
+
+- If you use 16:9 perspective, use an image on the side!
+    - classoption: aspectratio=169 
+    - for classical ratio: classoption: aspectratio=43 
+
+### Syntax
+
+See: [Rmarkdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+
+# Dummy frames
+
+## Two column frame 
+
+### Two column frame 
+
+This theme supports special LaTeX macros `\beingcols` and `\endcols` that allows
+for markdown to be blended with LaTeX without triggering the [`raw_tex`](http://pandoc.org/MANUAL.html#raw-tex) 
+extension. To enable this feature, the `safe-columns` key in the YML head matter
+must be set equal to `true`.
+
+\begincols
+
+\column{.49\linewidth}
+
+- _Hello!_
+
+\column{.49\linewidth}
+
+1. **Goodbye!**
+
+\endcols
+
+```markdown
+\begincols
+\column{.49\linewidth}
+- _Hello!_
+\column{.49\linewidth}
+1. **Goodbye!**
+\endcols
+```
+
+### Two Column Frame (2)
+
+\begincols
+\column{.58\linewidth}
+\color{red}\rule{\linewidth}{4pt}
+Column 1 (.58)
+
+\column{.38\linewidth}
+\color{blue}\rule{\linewidth}{4pt}
+Column 2 (.38)
+ 
+\endcols
+
+## Tables
+
+### Tables
+
+- Markdown has a bunch of options. See for instance the document on PDF plain format in the templates  
+\smallskip
+
+- I still find latex tables easier to handle. A great tool to generate the code is:
+https://tablesgenerator.com/latex_tables
+
+\smallskip
+
+- [paulgp](https://github.com/paulgp/beamer-tips) advices against using the \texttt{table} environment. Instead:
+
+```latex
+\makebox[\linewidth][c]{
+\begin{tabular}{l cc ddd}
+  results...
+\end{tabular}
+```
+
+### Markdown table
+
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+
+### Table nice example PaulGP
+
+\makebox[\linewidth][c]{
+\begin{tabular}{l cc rrr}
+
+  \toprule
+  &  Mean at && \multicolumn{3}{c}{Difference-in-Differences Estimates} \\
+  \cmidrule{4-6}
+  & $ t=-1 $ &&\multicolumn{1}{c}{1 Year} & \multicolumn{1}{c}{2 Years} & \multicolumn{1}{c}{3 Years} \\
+  \cmidrule{2-2} \cmidrule{4-6}
+  & \multicolumn{1}{c}{(1)}  &&\multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+  \cmidrule{2-6}
+  Outcome 1 & 2.58 && 0.11 &0.08 &  0.12\\
+  & (2.55) && (0.04) & (0.04) & (0.04)\\ 
+  Outcome 2 & 60.90 && -0.73 &-1.13 & -1.58\\
+  & (17.02) && (0.10) & (0.11) & (0.12) \\
+  Outcome 3 & 18.98 && 0.77 &1.28 & 1.62\\
+  & (6.74) && (0.13) & (0.13) & (0.12)\\ 
+  \bottomrule
+\end{tabular}
+}
+
+
+## Figures
+
+### Figure frame markdown
+
+![The Eye](Figures/ilogo){width=30%}
+
+### Figure with commentary frame
+
+\begincols
+\column{.58\linewidth}
+ 
+![The Eye2](Figures/ilogo){width=50%}
+ 
+\column{.38\linewidth}
+
+- So here is line 1
+
+- Line 2
+
+- Line 3
+
+\endcols
+
+
+## Other: also from paulgp
+
+### equation 2 pretty
+
+
+- Don't overdo it when putting up equations\\(either regressions or theorems)
+- Try adding color and text to highlight the relevant formula
+- Consider (Imbens and Angrist 1994): 
+    
+ \begin{equation*}
+        \alpha_{g}^{IV} = \left. \underbrace{Cov(Y, g(\textcolor{blue}{Z}))}_{\text{\textcolor{red}{Reduced Form}}} \middle/ \underbrace{Cov(D, g(\textcolor{blue}{Z}))}_{\text{\textcolor{green}{First Stage}}} \right.
+      \end{equation*}
+
+
+### Tikz figures
+
+\begin{center}
+\begin{tikzpicture}[snake=zigzag, line before snake = 5mm, line after snake = 5mm, line width=1mm]
+    % draw horizontal line   
+    \draw (0,0) -- (1,0);
+    \draw[snake] (1,0) -- (3,0);
+    \draw (3,0) -- (4,0);
+    \draw[blue] (4,0) -- (8,0);
+    \draw[->] (8,0) -- (9,0);
+
+
+    \draw (0,.95) -- (1,.95);
+    \draw[snake] (1,.95) -- (3,.95);
+    \draw (3,.95) -- (4,.95);
+    \draw[red] (4,.95) -- (8,.95);
+    \draw[->] (8,.95) -- (9,.95);
+
+    % draw vertical lines
+    \foreach \x in {8}
+      \draw (\x cm,.205) -- (\x cm,-.205);
+    \foreach \x in {4}
+      \draw (\x cm,{.95+(.205)}) -- (\x cm,{.95-(.205)});
+    \foreach \x in {0}
+      \draw (\x cm,{.95+(.205)}) -- (\x cm,{0-(.205)});
+
+    % draw nodes
+    \draw (0,0) node[below=.105] {}  node[left=.105] {\textcolor{blue}{Control}};
+    \draw (0,0.95) node[below=.105] {} node[above=.105] {} node[left=.105] {\textcolor{red}{Treatment}};
+    \draw (4,.95) node[below=.105] {} node[above=.105] {} node[below=.105] {Policy Treatment};
+    \draw (8,0) node[below=.105] {} node[above=.105] {} node[below=.105] {End Policy};
+  \end{tikzpicture}
+\end{center}
