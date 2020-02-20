@@ -19,6 +19,7 @@ output:
 # Section title     
 ## Subsection title 
 
+
 ### Frame Title
 
 Frame content 
@@ -50,8 +51,10 @@ Content inside of a box
 
 Hello Equation \ref{eq:binom}
 
+
 ## Code Example
 
+ 
 ### Code Embedding
 
 ```{r}
@@ -65,8 +68,7 @@ x + y
 Inline R code refering to variable in previous code chunk:
 
 `r x`
-
-
+ 
 ### Spacing
 
 - Use: \\bigskip
@@ -81,12 +83,12 @@ Inline R code refering to variable in previous code chunk:
 - If you use 16:9 perspective, use an image on the side!
     - classoption: aspectratio=169 
     - for classical ratio: classoption: aspectratio=43 
-
+ 
 ### Syntax
 
 See: [Rmarkdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
-
+ 
 # Dummy frames
 
 ## Two column frame 
