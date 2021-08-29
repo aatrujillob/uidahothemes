@@ -8,7 +8,7 @@ beamer_vandals(toc = FALSE, slide_level = 3, incremental = FALSE,
   fig_width = 10, fig_height = 7, fig_crop = TRUE,
   fig_caption = TRUE, dev = "pdf", df_print = "default",
   fonttheme = "default", highlight = "default", keep_tex = FALSE,
-  latex_engine = "pdflatex", citation_package = c("none", "natbib",
+  latex_engine = "pdflatex", citation_package = c("default", "natbib",
   "biblatex"), includes = NULL, md_extensions = NULL,
   pandoc_args = NULL)
 }

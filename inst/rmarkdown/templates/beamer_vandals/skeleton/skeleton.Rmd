@@ -11,7 +11,7 @@ safe-columns: true                               # Enables special latex macros 
 classoption: aspectratio=43                     # Use aspectratio=169 if prefer wide slide or 43 if default
 show-notes: false                                # Show speaker notes
 tikz: true
-tikz-libs: arrows,snakes
+tikz-libs: arrows,decorations
 output: 
    uidahothemes::beamer_vandals
 ---
